@@ -1,6 +1,6 @@
 function CreateInput(dataAttr, storylineVariable, options = {}) {
     var player = GetPlayer();
-  var setVar = player.SetVar;
+    var setVar = player.SetVar;
     const selectElement = document.querySelector(`div[data-acc-text='${dataAttr}']`);
 
     if (!selectElement) {
@@ -20,6 +20,11 @@ function CreateInput(dataAttr, storylineVariable, options = {}) {
     textarea.style.color = options.textColor || 'black';
     textarea.style.border = options.border || '1px solid black';
     textarea.style.fontSize = options.fontSize || '13px';
+
+    // Set placeholder if provided in options
+    if (options.placeholder !== undefined) {
+        textarea.placeholder = options.placeholder;
+    }
 
     if (options.defaultValue !== undefined) {
         textarea.value = options.defaultValue;
